@@ -19,4 +19,13 @@ public class ChainsawController : MonoBehaviour
   {
     rb.AddForce(transform.up * speed);
   }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.tag == "Enemy")
+    {
+      other.GetComponent<Enemy>().Die();
+      Debug.LogWarning("Increase blood fuel");
+    }
+  }
 }
