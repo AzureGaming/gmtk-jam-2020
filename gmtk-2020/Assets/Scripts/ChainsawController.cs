@@ -25,7 +25,6 @@ public class ChainsawController : MonoBehaviour
     if (other.tag == "Enemy")
     {
       other.GetComponent<Enemy>().Die();
-      Debug.LogWarning("Increase blood fuel");
     }
   }
 }
