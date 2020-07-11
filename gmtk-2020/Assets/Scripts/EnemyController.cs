@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+  public AudioSource deathSound;
+  public SpriteRenderer spriteRenderer;
+  public Rigidbody2D rb;
+
   public int bloodAmount = 10;
 
   HealthBar healthBar;
@@ -15,8 +19,10 @@ public class EnemyController : MonoBehaviour
 
   public void Die()
   {
-    Debug.LogWarning("Implement Enemy Death...");
+    deathSound.Play();
     healthBar.IncrementHealth(bloodAmount);
-    Destroy(this.gameObject);
+    spriteRenderer.enabled = false;
+    rb.isKinematic = true;
+    Destroy(this.gameObject, deathSound.clip.length + 0.5f);
   }
 }
