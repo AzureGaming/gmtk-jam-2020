@@ -5,8 +5,16 @@ using UnityEngine;
 public class ChainsawController : MonoBehaviour
 {
   public Rigidbody2D rb;
-  public float speed = 1f;
+  public Animator animator;
+  public Camera cam;
+
+  float speed = 0f;
   bool isDead = false;
+
+  private void Start()
+  {
+    cam = FindObjectOfType<Camera>();
+  }
 
   public void Die()
   {
@@ -31,6 +39,21 @@ public class ChainsawController : MonoBehaviour
 
   void ApplyInput()
   {
+    ConvertMousePosToDirection();
     rb.AddForce(transform.up * speed);
+  }
+
+  void ConvertMousePosToDirection()
+  {
+    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+    pos.z = transform.position.z;
+
+    Vector3 deltaPos = pos - transform.position;
+    animator.SetFloat("Magnitude", deltaPos.magnitude);
+
+    Vector3 direction = deltaPos.normalized;
+    animator.SetFloat("Horizontal", direction.x);
+    animator.SetFloat("Vertical", direction.y);
   }
 }

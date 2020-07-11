@@ -644,7 +644,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   winScreen: {fileID: 1198573196}
   startScreen: {fileID: 605128836}
   maxHealth: 100
-  timeLimit: 5
+  timeLimit: 600
 --- !u!4 &826555497
 Transform:
   m_ObjectHideFlags: 0
@@ -6488,11 +6488,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3110762070882439443, guid: 785beac59578f4815be2b438b9fcca8a,
+        type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4938998447842661866, guid: 785beac59578f4815be2b438b9fcca8a,
         type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5613576599676803810, guid: 785beac59578f4815be2b438b9fcca8a,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6371646693341889113, guid: 785beac59578f4815be2b438b9fcca8a,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
   public GameObject startScreen;
 
   public int maxHealth = 100;
-  public int timeLimit = 5;
+  public int timeLimit = 600;
 
   ChainsawController playerController;
   Coroutine timer;
@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
     float timeElapsed = 0;
     while (timeElapsed < timeLimit)
     {
-      Debug.Log(timeElapsed);
       yield return new WaitForSeconds(1f);
       timeElapsed = Time.time - startTime;
     }
