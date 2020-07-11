@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
   public AudioSource deathSound;
   public SpriteRenderer spriteRenderer;
   public Rigidbody2D rb;
+  public GameObject blood;
 
   public int bloodAmount = 10;
   public int scoreValue = 100;
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
     healthBar.IncrementHealth(bloodAmount);
     spriteRenderer.enabled = false;
     rb.isKinematic = true;
+    Instantiate(blood, transform.position, Quaternion.identity);
     Destroy(this.gameObject, deathSound.clip.length + 0.5f);
   }
 }
