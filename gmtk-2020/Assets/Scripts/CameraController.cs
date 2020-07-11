@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
   Vector3 origPos;
-  // Start is called before the first frame update
   void Start()
   {
     origPos = transform.position;
