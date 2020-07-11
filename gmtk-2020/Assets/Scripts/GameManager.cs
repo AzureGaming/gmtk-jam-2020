@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
   public HealthBarDrain healthBarDrain;
   public EnemySpawnManager enemySpawnManager;
   public GameObject player;
-  public CameraController cameraController;
   public GameObject loseScreen;
   public GameObject winScreen;
   public GameObject startScreen;
@@ -56,7 +55,7 @@ public class GameManager : MonoBehaviour
     healthBar.SetMaxHealth(maxHealth);
     healthBarDrain.Initialize();
     enemySpawnManager.StartSpawning();
-    cameraController.Reset();
+    Camera.main.GetComponent<CameraController>().Reset();
     startScreen.SetActive(false);
     loseScreen.SetActive(false);
     winScreen.SetActive(false);
