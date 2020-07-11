@@ -5,8 +5,17 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+  public GameManager gameManager;
   public Slider slider;
   int health;
+
+  private void Update()
+  {
+    if (Input.GetKeyDown(KeyCode.T))
+    {
+      SubtractHealth(100);
+    }
+  }
 
   public void SubtractHealth(int value)
   {
@@ -33,8 +42,7 @@ public class HealthBar : MonoBehaviour
     health = value;
     if (health <= 0)
     {
-      Debug.LogWarning("Implement LOSE state...");
-      GetComponent<HealthBarDrain>().Stop();
+      gameManager.LoseGame();
     }
     else if (health > 100)
     {

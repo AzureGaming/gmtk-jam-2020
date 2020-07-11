@@ -6,6 +6,12 @@ public class ChainsawController : MonoBehaviour
 {
   public Rigidbody2D rb;
   public float speed = 1f;
+  bool isDead = false;
+
+  public void Die()
+  {
+    Destroy(this.gameObject);
+  }
 
   private void FixedUpdate()
   {
@@ -15,16 +21,16 @@ public class ChainsawController : MonoBehaviour
     }
   }
 
-  void ApplyInput()
-  {
-    rb.AddForce(transform.up * speed);
-  }
-
   private void OnTriggerEnter2D(Collider2D other)
   {
     if (other.tag == "Enemy")
     {
       other.GetComponent<Enemy>().Die();
     }
+  }
+
+  void ApplyInput()
+  {
+    rb.AddForce(transform.up * speed);
   }
 }

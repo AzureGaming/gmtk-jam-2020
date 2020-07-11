@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CenterOnObject : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  public Transform chainsaw;
 
-    // Update is called once per frame
-    void Update()
+  // Update is called once per frame
+  private void FixedUpdate()
+  {
+    if (chainsaw)
     {
-        
+      transform.position = new Vector3(chainsaw.position.x, chainsaw.position.y, transform.position.z);
     }
+  }
 }

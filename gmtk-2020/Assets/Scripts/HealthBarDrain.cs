@@ -16,7 +16,7 @@ public class HealthBarDrain : MonoBehaviour
 
   public void Stop()
   {
-    StopCoroutine(DrainHealth());
+    StopAllCoroutines();
   }
 
   IEnumerator DrainHealth()

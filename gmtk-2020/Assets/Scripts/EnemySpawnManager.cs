@@ -20,22 +20,22 @@ public class EnemySpawnManager : MonoBehaviour
     LoadBoundaries();
   }
 
-  private void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.T))
-    {
-      SpawnEnemy();
-    }
-  }
-
   public void StartSpawning()
   {
     StartCoroutine(SpawnEnemies());
   }
 
+  public void CleanUpSpawns()
+  {
+    foreach (Enemy spawn in FindObjectsOfType<Enemy>())
+    {
+      Destroy(spawn.gameObject);
+    }
+  }
+
   public void StopSpawning()
   {
-    StopCoroutine(SpawnEnemies());
+    StopAllCoroutines();
   }
 
   IEnumerator SpawnEnemies()
@@ -49,10 +49,14 @@ public class EnemySpawnManager : MonoBehaviour
 
   void SpawnEnemy()
   {
+    if (!player)
+    {
+      player = FindObjectOfType<ChainsawController>().transform;
+    }
+
     float randomPosOnCamX = Random.Range(cam.ViewportToWorldPoint(new Vector3(0, 0)).x, cam.ViewportToWorldPoint(new Vector3(1, 0)).x);
     float randomPosOnCamY = Random.Range(cam.ViewportToWorldPoint(new Vector3(0, 0)).y, cam.ViewportToWorldPoint(new Vector3(1, 1)).y);
     Vector3 enemyPosition = new Vector3(randomPosOnCamX, randomPosOnCamY, 0f);
-    Debug.Log(IsWithinBoundaries(enemyPosition));
     if ((enemyPosition - player.transform.position).magnitude >= 3 && IsWithinBoundaries(enemyPosition))
     {
       Instantiate(enemy, enemyPosition, Quaternion.identity);
