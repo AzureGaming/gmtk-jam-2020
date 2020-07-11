@@ -26,6 +26,30 @@ TextureImporter:
   - first:
       213: 6522857827718226105
     second: Demon-Sheet_7
+  - first:
+      213: 8969750617327683739
+    second: Demon-Sheet_0
+  - first:
+      213: 1453094525939933852
+    second: Demon-Sheet_1
+  - first:
+      213: 3184147716807705617
+    second: Demon-Sheet_2
+  - first:
+      213: 9018110212544914715
+    second: Demon-Sheet_3
+  - first:
+      213: 4592506608201139863
+    second: Demon-Sheet_4
+  - first:
+      213: 6836575912072064962
+    second: Demon-Sheet_5
+  - first:
+      213: 4812499564857637102
+    second: Demon-Sheet_6
+  - first:
+      213: -1400423533173181158
+    second: Demon-Sheet_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,9 +151,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 26
-        width: 28
-        height: 26
+        y: 104
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edfe4303fa14de270800000000000000
-      internalID: 8281347510488068062
+      spriteID: b9848a5a9a4fa7c70800000000000000
+      internalID: 8969750617327683739
       vertices: []
       indices: 
       edges: []
@@ -147,10 +171,10 @@ TextureImporter:
       name: Demon-Sheet_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 26
-        width: 28
-        height: 26
+        x: 112
+        y: 104
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c52fb066abdff6730800000000000000
-      internalID: 3994690371518722652
+      spriteID: c92e6b3c5cd6a2410800000000000000
+      internalID: 1453094525939933852
       vertices: []
       indices: 
       edges: []
@@ -168,10 +192,10 @@ TextureImporter:
       name: Demon-Sheet_2
       rect:
         serializedVersion: 2
-        x: 56
-        y: 26
-        width: 28
-        height: 26
+        x: 224
+        y: 104
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d239295df3412b70800000000000000
-      internalID: 8872447496298246866
+      spriteID: 114c1b46a7d503c20800000000000000
+      internalID: 3184147716807705617
       vertices: []
       indices: 
       edges: []
@@ -189,10 +213,10 @@ TextureImporter:
       name: Demon-Sheet_3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 26
-        width: 28
-        height: 26
+        x: 336
+        y: 104
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e0fe2ce55bb862c0800000000000000
-      internalID: -4438091455064510232
+      spriteID: b15ef045573c62d70800000000000000
+      internalID: 9018110212544914715
       vertices: []
       indices: 
       edges: []
@@ -212,8 +236,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 28
-        height: 26
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1596c6761523a04c0800000000000000
-      internalID: -4320585567299671727
+      spriteID: 79686729d6cdbbf30800000000000000
+      internalID: 4592506608201139863
       vertices: []
       indices: 
       edges: []
@@ -231,10 +255,10 @@ TextureImporter:
       name: Demon-Sheet_5
       rect:
         serializedVersion: 2
-        x: 28
+        x: 112
         y: 0
-        width: 28
-        height: 26
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d02d6ced54a4320800000000000000
-      internalID: 2542921762724777270
+      spriteID: 2cf2c0ff19560ee50800000000000000
+      internalID: 6836575912072064962
       vertices: []
       indices: 
       edges: []
@@ -252,10 +276,10 @@ TextureImporter:
       name: Demon-Sheet_6
       rect:
         serializedVersion: 2
-        x: 56
+        x: 224
         y: 0
-        width: 28
-        height: 26
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6412144af8a3230800000000000000
-      internalID: 3619363186175723220
+      spriteID: ee8bf054bde69c240800000000000000
+      internalID: 4812499564857637102
       vertices: []
       indices: 
       edges: []
@@ -273,10 +297,10 @@ TextureImporter:
       name: Demon-Sheet_7
       rect:
         serializedVersion: 2
-        x: 84
+        x: 336
         y: 0
-        width: 28
-        height: 26
+        width: 112
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b0658d72a8d58a50800000000000000
-      internalID: 6522857827718226105
+      spriteID: a157d126732b09ce0800000000000000
+      internalID: -1400423533173181158
       vertices: []
       indices: 
       edges: []

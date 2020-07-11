@@ -7,10 +7,12 @@ public class ChainsawController : MonoBehaviour
   public Rigidbody2D rb;
   public Animator animator;
   public AudioSource chainsawIdle;
+  public ChainsawCharge charge;
 
   float speed = 10f;
-  bool isDead = false;
+  bool charging = false;
   Coroutine idleAudio;
+  Vector3 lastDirection;
 
   private void Start()
   {
@@ -27,7 +29,20 @@ public class ChainsawController : MonoBehaviour
   {
     if (rb != null)
     {
-      ConvertMousePosToDirection();
+      if (Input.GetMouseButton(0))
+      {
+        charging = true;
+        charge.Attack(lastDirection);
+      }
+      else if (charging)
+      {
+        charging = false;
+        charge.UnRev();
+      }
+      else
+      {
+        ConvertMousePosToDirection();
+      }
     }
   }
 
@@ -46,13 +61,14 @@ public class ChainsawController : MonoBehaviour
     pos.z = transform.position.z;
 
     Vector3 deltaPos = pos - transform.position;
-    animator.SetFloat("Magnitude", deltaPos.magnitude);
+    // animator.SetFloat("Magnitude", deltaPos.magnitude);
 
     Vector3 direction = deltaPos.normalized;
     animator.SetFloat("Horizontal", direction.x);
     animator.SetFloat("Vertical", direction.y);
 
     rb.AddForce(direction * speed);
+    lastDirection = direction;
   }
 
   IEnumerator LoopIdleAudio()

@@ -131,12 +131,17 @@ PrefabInstance:
     - target: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.28
+      value: 1.8666667
       objectReference: {fileID: 0}
     - target: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.26
+      value: 1.7333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
@@ -172,36 +177,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281373, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3061413470497281374, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
