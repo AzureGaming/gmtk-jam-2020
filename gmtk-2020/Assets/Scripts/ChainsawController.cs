@@ -6,15 +6,9 @@ public class ChainsawController : MonoBehaviour
 {
   public Rigidbody2D rb;
   public Animator animator;
-  public Camera cam;
 
-  float speed = 0f;
+  float speed = 10f;
   bool isDead = false;
-
-  private void Start()
-  {
-    cam = FindObjectOfType<Camera>();
-  }
 
   public void Die()
   {
@@ -25,7 +19,7 @@ public class ChainsawController : MonoBehaviour
   {
     if (rb != null)
     {
-      ApplyInput();
+      ConvertMousePosToDirection();
     }
   }
 
@@ -35,12 +29,6 @@ public class ChainsawController : MonoBehaviour
     {
       other.GetComponent<Enemy>().Die();
     }
-  }
-
-  void ApplyInput()
-  {
-    ConvertMousePosToDirection();
-    rb.AddForce(transform.up * speed);
   }
 
   void ConvertMousePosToDirection()
@@ -55,5 +43,7 @@ public class ChainsawController : MonoBehaviour
     Vector3 direction = deltaPos.normalized;
     animator.SetFloat("Horizontal", direction.x);
     animator.SetFloat("Vertical", direction.y);
+
+    rb.AddForce(direction * speed);
   }
 }
