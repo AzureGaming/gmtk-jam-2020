@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
   public HealthBar healthBar;
   public HealthBarDrain healthBarDrain;
   public EnemySpawnManager enemySpawnManager;
+  public ScoreManager scoreManager;
   public GameObject player;
   public GameObject loseScreen;
   public GameObject winScreen;
@@ -18,9 +19,13 @@ public class GameManager : MonoBehaviour
   ChainsawController playerController;
   Coroutine timer;
 
+  int enemiesKilled = 0;
+  int scoreMultiplier = 1;
+
   void Start()
   {
     startScreen.SetActive(true);
+    scoreManager.HideScore();
     healthBar.gameObject.SetActive(false);
     enemySpawnManager.StopSpawning();
     if (FindObjectOfType<ChainsawController>() != null)
@@ -40,6 +45,9 @@ public class GameManager : MonoBehaviour
 
   public void StartGame()
   {
+    enemiesKilled = 0;
+    scoreManager.ShowScore();
+    scoreManager.SetScore();
     enemySpawnManager.CleanUpSpawns();
     if (FindObjectOfType<ChainsawController>())
     {
@@ -58,8 +66,18 @@ public class GameManager : MonoBehaviour
     Camera.main.GetComponent<CameraController>().Reset();
     startScreen.SetActive(false);
     loseScreen.SetActive(false);
-    winScreen.SetActive(false);
-    timer = StartCoroutine(StartTimer(timeLimit));
+    // winScreen.SetActive(false);
+    // timer = StartCoroutine(StartTimer(timeLimit));
+  }
+
+  public void IncrementScore(int score)
+  {
+    enemiesKilled += 1;
+    if (enemiesKilled % 5 == 0)
+    {
+      scoreMultiplier += 1;
+    }
+    scoreManager.IncrementScore(score * scoreMultiplier, scoreMultiplier);
   }
 
   IEnumerator StartTimer(int timeLimit)

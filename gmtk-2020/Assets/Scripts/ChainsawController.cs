@@ -6,12 +6,20 @@ public class ChainsawController : MonoBehaviour
 {
   public Rigidbody2D rb;
   public Animator animator;
+  public AudioSource chainsawIdle;
 
   float speed = 10f;
   bool isDead = false;
+  Coroutine idleAudio;
+
+  private void Start()
+  {
+    idleAudio = StartCoroutine(LoopIdleAudio());
+  }
 
   public void Die()
   {
+    chainsawIdle.time = 0;
     Destroy(this.gameObject);
   }
 
@@ -27,7 +35,7 @@ public class ChainsawController : MonoBehaviour
   {
     if (other.tag == "Enemy")
     {
-      other.GetComponent<Enemy>().Die();
+      StartCoroutine(HandleEnemyCollision(other));
     }
   }
 
@@ -45,5 +53,37 @@ public class ChainsawController : MonoBehaviour
     animator.SetFloat("Vertical", direction.y);
 
     rb.AddForce(direction * speed);
+  }
+
+  IEnumerator LoopIdleAudio()
+  {
+    while (true)
+    {
+      chainsawIdle.time = 36;
+      chainsawIdle.Play();
+      chainsawIdle.SetScheduledEndTime(AudioSettings.dspTime + (42f - 36f));
+      yield return new WaitUntil(() => !chainsawIdle.isPlaying);
+      // chainsawIdle.time = 61;
+      // chainsawIdle.Play();
+      // chainsawIdle.SetScheduledEndTime(AudioSettings.dspTime + (78 - 61f));
+      // yield return new WaitUntil(() => !chainsawIdle.isPlaying);
+    }
+  }
+
+  void StopIdleAudio()
+  {
+    if (idleAudio != null)
+    {
+      StopCoroutine(idleAudio);
+    }
+    chainsawIdle.Stop();
+  }
+
+  IEnumerator HandleEnemyCollision(Collider2D other)
+  {
+    StopIdleAudio();
+    other.GetComponent<Enemy>().Die();
+    yield return new WaitForSeconds(0.5f);
+    idleAudio = StartCoroutine(LoopIdleAudio());
   }
 }

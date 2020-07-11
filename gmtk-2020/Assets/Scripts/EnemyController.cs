@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+  GameManager gameManager;
+
+  public AudioSource deathSound;
+  public SpriteRenderer spriteRenderer;
+  public Rigidbody2D rb;
+
   public int bloodAmount = 10;
+  public int scoreValue = 100;
 
   HealthBar healthBar;
 
   private void Awake()
   {
     healthBar = FindObjectOfType<HealthBar>();
+    gameManager = FindObjectOfType<GameManager>();
   }
 
   public void Die()
   {
-    Debug.LogWarning("Implement Enemy Death...");
+    gameManager.IncrementScore(scoreValue);
+    deathSound.Play();
     healthBar.IncrementHealth(bloodAmount);
-    Destroy(this.gameObject);
+    spriteRenderer.enabled = false;
+    rb.isKinematic = true;
+    Destroy(this.gameObject, deathSound.clip.length + 0.5f);
   }
 }
