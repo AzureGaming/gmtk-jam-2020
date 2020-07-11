@@ -416,6 +416,7 @@ MonoBehaviour:
   enemy: {fileID: 3061413470497281374, guid: c96b1e5a9152d4aad8f1a53fc6a73b13, type: 3}
   cam: {fileID: 519420031}
   player: {fileID: 728743927}
+  tilemap: {fileID: 1296981116}
   spawnDelay: 1
 --- !u!1 &1296981113
 GameObject:
@@ -5042,21 +5043,6 @@ PrefabInstance:
     - target: {fileID: 6371646693341889113, guid: 785beac59578f4815be2b438b9fcca8a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371646693341889113, guid: 785beac59578f4815be2b438b9fcca8a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371646693341889113, guid: 785beac59578f4815be2b438b9fcca8a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371646693341889113, guid: 785beac59578f4815be2b438b9fcca8a,
-        type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7286298651115315861, guid: 785beac59578f4815be2b438b9fcca8a,
