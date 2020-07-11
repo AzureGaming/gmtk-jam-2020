@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
   public HealthBar healthBar;
   public HealthBarDrain healthBarDrain;
+  public EnemySpawnManager enemySpawnManager;
 
   public int maxHealth = 100;
 
@@ -13,5 +14,6 @@ public class GameManager : MonoBehaviour
   {
     healthBar.SetMaxHealth(maxHealth);
     healthBarDrain.Initialize();
+    enemySpawnManager.StartSpawning();
   }
 }
