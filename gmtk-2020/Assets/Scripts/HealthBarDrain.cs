@@ -24,7 +24,7 @@ public class HealthBarDrain : MonoBehaviour
   {
     while (true)
     {
-      if (waitCounter % 10 == 0)
+      if (waitCounter % 10 == 0 && waitCounter != 0)
       {
         drainDamage += 2;
       }

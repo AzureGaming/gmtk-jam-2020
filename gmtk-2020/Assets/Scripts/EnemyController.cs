@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
   public BoxCollider2D triggerCollider;
 
   protected int bloodAmount = 5;
-  protected int gloryKillBloodAmount = 10;
+  protected int gloryKillBloodAmount = 15;
   public int scoreValue = 100;
 
   protected GameManager gameManager;
