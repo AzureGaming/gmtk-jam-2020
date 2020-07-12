@@ -1,7 +1,154 @@
 fileFormatVersion: 2
 guid: 40e7e86b36e364ce8b9ce2f0ebe8ff34
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 999717246267885264
+    second: Hellsaw Title-Sheet_0
+  - first:
+      213: -1874318853810739239
+    second: Hellsaw Title-Sheet_1
+  - first:
+      213: -8792478816966616238
+    second: Hellsaw Title-Sheet_2
+  - first:
+      213: -8799783458125212494
+    second: Hellsaw Title-Sheet_3
+  - first:
+      213: -3855282196358795755
+    second: Hellsaw Title-Sheet_4
+  - first:
+      213: 8435123616936767947
+    second: Hellsaw Title-Sheet_5
+  - first:
+      213: 9111652569768260788
+    second: Hellsaw Title-Sheet_6
+  - first:
+      213: 2553744442977456459
+    second: Hellsaw Title-Sheet_7
+  - first:
+      213: 6807643611058886172
+    second: Hellsaw Title-Sheet_8
+  - first:
+      213: 7930202513821505297
+    second: Hellsaw Title-Sheet_9
+  - first:
+      213: 77047008179580955
+    second: Hellsaw Title-Sheet_10
+  - first:
+      213: 3249398082674716423
+    second: Hellsaw Title-Sheet_11
+  - first:
+      213: 4289145820483905033
+    second: Hellsaw Title-Sheet_12
+  - first:
+      213: -642887200945887284
+    second: Hellsaw Title-Sheet_13
+  - first:
+      213: 4116240217362510974
+    second: Hellsaw Title-Sheet_14
+  - first:
+      213: -6178721481662471742
+    second: Hellsaw Title-Sheet_15
+  - first:
+      213: 8425334496857830134
+    second: Hellsaw Title-Sheet_16
+  - first:
+      213: -3841021672697418495
+    second: Hellsaw Title-Sheet_17
+  - first:
+      213: 822170548063054601
+    second: Hellsaw Title-Sheet_18
+  - first:
+      213: 312724374809304769
+    second: Hellsaw Title-Sheet_19
+  - first:
+      213: -2433527652890500836
+    second: Hellsaw Title-Sheet_20
+  - first:
+      213: -7317029115476572577
+    second: Hellsaw Title-Sheet_21
+  - first:
+      213: 185445447668371584
+    second: Hellsaw Title-Sheet_22
+  - first:
+      213: -2606121613421643246
+    second: Hellsaw Title-Sheet_23
+  - first:
+      213: 8122591737789678785
+    second: Hellsaw Title-Sheet_24
+  - first:
+      213: 7233839491883837083
+    second: Hellsaw Title-Sheet_25
+  - first:
+      213: 323029402075857710
+    second: Hellsaw Title-Sheet_26
+  - first:
+      213: 3105544871390281953
+    second: Hellsaw Title-Sheet_27
+  - first:
+      213: -6708098027375339552
+    second: Hellsaw Title-Sheet_28
+  - first:
+      213: 1475377153104459484
+    second: Hellsaw Title-Sheet_29
+  - first:
+      213: -3249824224982645155
+    second: Hellsaw Title-Sheet_30
+  - first:
+      213: -6045126340512892965
+    second: Hellsaw Title-Sheet_31
+  - first:
+      213: -3802655729020467705
+    second: Hellsaw Title-Sheet_32
+  - first:
+      213: -1212808422119926250
+    second: Hellsaw Title-Sheet_33
+  - first:
+      213: -7280159783492813098
+    second: Hellsaw Title-Sheet_34
+  - first:
+      213: -5381665351606290117
+    second: Hellsaw Title-Sheet_35
+  - first:
+      213: 8885686541002374998
+    second: Hellsaw Title-Sheet_36
+  - first:
+      213: -4452166282509649330
+    second: Hellsaw Title-Sheet_37
+  - first:
+      213: 118126009575349964
+    second: Hellsaw Title-Sheet_38
+  - first:
+      213: 8837977105512959568
+    second: Hellsaw Title-Sheet_39
+  - first:
+      213: -290371625423767771
+    second: Hellsaw Title-Sheet_40
+  - first:
+      213: -4685078674867114433
+    second: Hellsaw Title-Sheet_41
+  - first:
+      213: -813367361578911057
+    second: Hellsaw Title-Sheet_42
+  - first:
+      213: -1781933427738756734
+    second: Hellsaw Title-Sheet_43
+  - first:
+      213: -1922402187343397854
+    second: Hellsaw Title-Sheet_44
+  - first:
+      213: -8247959512476750541
+    second: Hellsaw Title-Sheet_45
+  - first:
+      213: 4464979894377896838
+    second: Hellsaw Title-Sheet_46
+  - first:
+      213: 360143386804454606
+    second: Hellsaw Title-Sheet_47
+  - first:
+      213: -553778967795372747
+    second: Hellsaw Title-Sheet_48
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +178,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +187,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -64,7 +211,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -73,7 +244,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Hellsaw Title-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 1096
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d601abe985bfdd00800000000000000
+      internalID: 999717246267885264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hellsaw Title-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 1096
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d72bcadee41df5e0800000000000000
+      internalID: -1874318853810739239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hellsaw Title-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 1096
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25bde8bb917daf580800000000000000
+      internalID: -8792478816966616238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hellsaw Title-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1096
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4961e6193e0e580800000000000000
+      internalID: -8799783458125212494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

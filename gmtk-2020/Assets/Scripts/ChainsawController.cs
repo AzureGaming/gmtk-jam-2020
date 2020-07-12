@@ -76,6 +76,7 @@ public class ChainsawController : MonoBehaviour
     }
     chainsawIdle.time = 0;
     chainsawIdle.Stop();
+    charge.StopAllCoroutines();
     yield return StartCoroutine(FadeOut());
     spriteRenderer.enabled = false;
     rb.velocity.Set(0, 0);

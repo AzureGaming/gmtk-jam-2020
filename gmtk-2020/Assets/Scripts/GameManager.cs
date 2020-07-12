@@ -24,14 +24,15 @@ public class GameManager : MonoBehaviour
 
   void Start()
   {
-    startScreen.SetActive(true);
-    scoreManager.HideScore();
-    healthBar.gameObject.SetActive(false);
-    enemySpawnManager.StopSpawning();
-    if (FindObjectOfType<ChainsawController>() != null)
-    {
-      Destroy(FindObjectOfType<ChainsawController>().gameObject);
-    }
+    // startScreen.SetActive(true);
+    // scoreManager.HideScore();
+    // healthBar.gameObject.SetActive(false);
+    // enemySpawnManager.StopSpawning();
+    // if (FindObjectOfType<ChainsawController>() != null)
+    // {
+    //   Destroy(FindObjectOfType<ChainsawController>().gameObject);
+    // }
+    StartGame();
   }
 
   public void LoseGame()
@@ -50,7 +51,6 @@ public class GameManager : MonoBehaviour
     enemySpawnManager.CleanUpSpawns();
     if (FindObjectOfType<ChainsawController>())
     {
-      Destroy(FindObjectOfType<ChainsawController>());
       playerController = FindObjectOfType<ChainsawController>().GetComponent<ChainsawController>();
     }
     else
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     healthBarDrain.Initialize();
     enemySpawnManager.StartSpawning();
     Camera.main.GetComponent<CameraController>().Reset();
-    startScreen.SetActive(false);
+    // startScreen.SetActive(false);
     loseScreen.SetActive(false);
     // winScreen.SetActive(false);
     // timer = StartCoroutine(StartTimer(timeLimit));
