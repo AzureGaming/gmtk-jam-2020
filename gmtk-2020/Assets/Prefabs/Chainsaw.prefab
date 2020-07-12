@@ -105,6 +105,8 @@ MonoBehaviour:
   animator: {fileID: 7238236231767495536}
   chainsawIdle: {fileID: 4755150601945820152}
   charge: {fileID: 274705953251333976}
+  spriteRenderer: {fileID: 5546794030708076233}
+  gameManager: {fileID: 0}
 --- !u!50 &4938998447842661866
 Rigidbody2D:
   serializedVersion: 4
@@ -293,7 +295,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b21b15df13534c568455bcce6c90a6c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

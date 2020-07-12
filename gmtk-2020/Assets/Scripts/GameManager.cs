@@ -39,15 +39,14 @@ public class GameManager : MonoBehaviour
     loseScreen.SetActive(true);
     healthBarDrain.Stop();
     enemySpawnManager.StopSpawning();
-    playerController.Die();
-    StopCoroutine(timer);
+    StartCoroutine(playerController.Die());
   }
 
   public void StartGame()
   {
     enemiesKilled = 0;
     scoreManager.ShowScore();
-    scoreManager.SetScore();
+    scoreManager.SetScore(0, 1);
     enemySpawnManager.CleanUpSpawns();
     if (FindObjectOfType<ChainsawController>())
     {

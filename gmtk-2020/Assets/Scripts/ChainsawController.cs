@@ -8,26 +8,39 @@ public class ChainsawController : MonoBehaviour
   public Animator animator;
   public AudioSource chainsawIdle;
   public ChainsawCharge charge;
+  public SpriteRenderer spriteRenderer;
+  public GameManager gameManager;
+
+  Coroutine idleAudio;
+  Vector3 lastDirection;
+  Color color;
 
   float speed = 10f;
   bool charging = false;
-  Coroutine idleAudio;
-  Vector3 lastDirection;
+  bool isDead = false;
+
+  private void Awake()
+  {
+    color = spriteRenderer.color;
+  }
 
   private void Start()
   {
     idleAudio = StartCoroutine(LoopIdleAudio());
   }
 
-  public void Die()
+  private void OnCollisionEnter2D(Collision2D other)
   {
-    chainsawIdle.time = 0;
-    Destroy(this.gameObject);
+    if (other.gameObject.tag == "Wall")
+    {
+      StartCoroutine(FlashRed());
+      FindObjectOfType<HealthBar>().SubtractHealth(10);
+    }
   }
 
   private void FixedUpdate()
   {
-    if (rb != null)
+    if (rb != null && !isDead)
     {
       if (Input.GetMouseButton(0))
       {
@@ -53,6 +66,22 @@ public class ChainsawController : MonoBehaviour
       StartCoroutine(HandleEnemyCollision(other));
     }
   }
+
+  public IEnumerator Die()
+  {
+    isDead = true;
+    if (idleAudio != null)
+    {
+      StopCoroutine(idleAudio);
+    }
+    chainsawIdle.time = 0;
+    chainsawIdle.Stop();
+    yield return StartCoroutine(FadeOut());
+    spriteRenderer.enabled = false;
+    rb.velocity.Set(0, 0);
+    Destroy(gameObject, 2f);
+  }
+
 
   void ConvertMousePosToDirection()
   {
@@ -105,5 +134,35 @@ public class ChainsawController : MonoBehaviour
     other.GetComponent<Enemy>().Die();
     yield return new WaitForSeconds(0.5f);
     idleAudio = StartCoroutine(LoopIdleAudio());
+  }
+
+  IEnumerator FlashRed()
+  {
+    int duration = 2;
+    for (int t = 0; t < duration; t++)
+    {
+      spriteRenderer.color = Color.red;
+      yield return new WaitForSeconds(0.1f);
+      spriteRenderer.color = Color.white;
+      yield return new WaitForSeconds(0.1f);
+    }
+    spriteRenderer.color = color;
+  }
+
+  IEnumerator FadeOut()
+  {
+    float duration = 1f;
+    for (float t = 0; t < duration; t += Time.deltaTime)
+    {
+      float alpha = Mathf.Lerp(spriteRenderer.color.a, 0, Mathf.Min(1, t / duration));
+      if (alpha < 0.1)
+      {
+        yield break;
+      }
+      Color newColor = spriteRenderer.color;
+      newColor.a = alpha;
+      spriteRenderer.color = newColor;
+      yield return null;
+    }
   }
 }

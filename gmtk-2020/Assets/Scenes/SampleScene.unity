@@ -4837,7 +4837,7 @@ GameObject:
   - component: {fileID: 1329829330}
   m_Layer: 0
   m_Name: Tilemap_Collidable
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6680,6 +6680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b77f7d0a1764a199d60acadd4f11a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1957419630 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5546794030708076233, guid: 785beac59578f4815be2b438b9fcca8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3846058035795755140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049952314
 GameObject:
   m_ObjectHideFlags: 0
@@ -6752,6 +6758,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5613576599676803810, guid: 785beac59578f4815be2b438b9fcca8a,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1957419630}
     - target: {fileID: 6371646693341889113, guid: 785beac59578f4815be2b438b9fcca8a,
         type: 3}
       propertyPath: m_LocalPosition.x
