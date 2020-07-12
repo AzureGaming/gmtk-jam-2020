@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
       scoreMultiplier += 1;
     }
-    if (score == 1000)
+    if (enemiesKilled % 10 == 0)
     {
       FindObjectOfType<ChainsawController>().GoBerserk();
     }

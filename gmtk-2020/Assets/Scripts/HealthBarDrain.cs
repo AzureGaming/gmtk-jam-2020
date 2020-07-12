@@ -6,7 +6,7 @@ public class HealthBarDrain : MonoBehaviour
 {
   public HealthBar healthBar;
 
-  public int drainDamage = 1;
+  public int drainDamage = 3;
   public float drainRate = 1f;
 
   public void Initialize()
