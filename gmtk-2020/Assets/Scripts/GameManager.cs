@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
   public GameObject player;
   public GameObject loseScreen;
   public GameObject winScreen;
-  public GameObject startScreen;
   public ChainsawController playerController;
 
   public int maxHealth = 100;
@@ -49,15 +48,12 @@ public class GameManager : MonoBehaviour
     healthBarDrain.Initialize();
     enemySpawnManager.StartSpawning();
     Camera.main.GetComponent<CameraController>().Reset();
-    // startScreen.SetActive(false);
     loseScreen.SetActive(false);
-    // winScreen.SetActive(false);
-    // timer = StartCoroutine(StartTimer(timeLimit));
+    playerController.WakeUp();
   }
 
   public void IncrementScore(int value)
   {
-    score += value;
     enemiesKilled += 1;
     if (enemiesKilled % 5 == 0)
     {
@@ -67,7 +63,8 @@ public class GameManager : MonoBehaviour
     {
       FindObjectOfType<ChainsawController>().GoBerserk();
     }
-    scoreManager.SetScore(score, scoreMultiplier);
+    score += value * scoreMultiplier;
+    scoreManager.SetScore(score * scoreMultiplier, scoreMultiplier);
   }
 
   public void ResetMultiplier()

@@ -33,11 +33,6 @@ public class ChainsawController : MonoBehaviour
     gameManager = FindObjectOfType<GameManager>();
   }
 
-  private void Start()
-  {
-    idleAudio = StartCoroutine(LoopIdleAudio());
-  }
-
   private void OnCollisionEnter2D(Collision2D other)
   {
     if (other.gameObject.tag == "Wall")
@@ -105,17 +100,25 @@ public class ChainsawController : MonoBehaviour
 
   public IEnumerator Die()
   {
+    rb.velocity = Vector2.zero;
+    rb.angularVelocity = 0;
+    rb.Sleep();
     isDead = true;
-    if (idleAudio != null)
-    {
-      StopCoroutine(idleAudio);
-    }
-    chainsawIdle.time = 0;
-    chainsawIdle.Stop();
+    StopAudio();
+    ResetAudio();
     charge.StopAllCoroutines();
+    StopAllCoroutines();
     yield return StartCoroutine(FadeOut());
     spriteRenderer.enabled = false;
-    rb.velocity.Set(0, 0);
+  }
+
+  public void WakeUp()
+  {
+    rb.WakeUp();
+    isDead = false;
+    spriteRenderer.color = color;
+    spriteRenderer.enabled = true;
+    idleAudio = StartCoroutine(LoopIdleAudio());
   }
 
   public void GoBerserk()
@@ -191,7 +194,7 @@ public class ChainsawController : MonoBehaviour
   IEnumerator HandleEnemyCollision(Collider2D other)
   {
     StopIdleAudio();
-    other.GetComponent<Enemy>().Die();
+    other.GetComponentInParent<Enemy>().Die();
     yield return new WaitForSeconds(0.5f);
     idleAudio = StartCoroutine(LoopIdleAudio());
   }
@@ -203,7 +206,7 @@ public class ChainsawController : MonoBehaviour
     spriteRenderer.enabled = false;
     rb.velocity = new Vector2(0, 0);
     Instantiate(gloryKill, transform);
-    yield return StartCoroutine(other.GetComponent<Enemy>().GloryDeath());
+    yield return StartCoroutine(other.GetComponentInParent<Enemy>().GloryDeath());
     spriteRenderer.enabled = true;
     gloryKilling = false;
   }
@@ -235,6 +238,22 @@ public class ChainsawController : MonoBehaviour
       newColor.a = alpha;
       spriteRenderer.color = newColor;
       yield return null;
+    }
+  }
+
+  void StopAudio()
+  {
+    foreach (AudioSource audioSource in GetComponents<AudioSource>())
+    {
+      audioSource.Stop();
+    }
+  }
+
+  void ResetAudio()
+  {
+    foreach (AudioSource audioSource in GetComponents<AudioSource>())
+    {
+      audioSource.time = 0;
     }
   }
 }

@@ -131,9 +131,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5466050715309826872}
   blood: {fileID: 2799323830549362392, guid: 070ec3b691ea640cc9bfa6f7d4e41f98, type: 3}
   portalSpawn: {fileID: 4364625914138543942}
-  boxCollider: {fileID: 308675651448295772}
+  triggerCollider: {fileID: 8317268037242076260}
   scoreValue: 100
   animator: {fileID: 1449586356535386341}
+  rb: {fileID: 676738926269146200}
 --- !u!1001 &3245248737783811932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,6 +248,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunny
       objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08211923
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.92859197
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01606682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7822055
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01606682
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08211923
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7822055
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.92859197
+      objectReference: {fileID: 0}
     - target: {fileID: 8006647485933787909, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
       propertyPath: scoreValue
@@ -294,12 +335,6 @@ Rigidbody2D:
     type: 3}
   m_PrefabInstance: {fileID: 3245248737783811932}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &308675651448295772 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-    type: 3}
-  m_PrefabInstance: {fileID: 3245248737783811932}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4364625914138543942 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1268665635703015450, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
@@ -312,3 +347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ab525e211ff4235bfe12ae44a60707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &8317268037242076260 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+    type: 3}
+  m_PrefabInstance: {fileID: 3245248737783811932}
+  m_PrefabAsset: {fileID: 0}

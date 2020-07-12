@@ -131,9 +131,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6312967009390198828}
   blood: {fileID: 2799323830549362392, guid: 070ec3b691ea640cc9bfa6f7d4e41f98, type: 3}
   portalSpawn: {fileID: 2365865359820989522}
-  boxCollider: {fileID: 1733842945391080008}
+  triggerCollider: {fileID: 8010677854352138096}
   scoreValue: 100
   animator: {fileID: 5456098941101957599}
+  rb: {fileID: 1523123022390282060}
 --- !u!1001 &3552788898689772616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,6 +153,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 8526539354195175088}
+    - target: {fileID: 2668260210063389681, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_TagString
+      value: Demon
+      objectReference: {fileID: 0}
     - target: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -207,10 +213,55 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demon
       objectReference: {fileID: 0}
-    - target: {fileID: 3061413470497281374, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
-      propertyPath: m_TagString
-      value: Demon
+      propertyPath: m_Offset.x
+      value: -0.09162706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5497628
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.10180783
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.4479556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787613569645342830, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09162706
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.10180783
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5497628
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.4479556
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8006647485933787909, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
@@ -237,7 +288,7 @@ PrefabInstance:
         type: 3}
       propertyPath: boxCollider
       value: 
-      objectReference: {fileID: 1733842945391080008}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8006647485933787909, guid: c96b1e5a9152d4aad8f1a53fc6a73b13, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c96b1e5a9152d4aad8f1a53fc6a73b13, type: 3}
@@ -259,12 +310,6 @@ Rigidbody2D:
     type: 3}
   m_PrefabInstance: {fileID: 3552788898689772616}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1733842945391080008 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
-    type: 3}
-  m_PrefabInstance: {fileID: 3552788898689772616}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2365865359820989522 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1268665635703015450, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
@@ -277,3 +322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ab525e211ff4235bfe12ae44a60707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &8010677854352138096 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6802036046598353720, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+    type: 3}
+  m_PrefabInstance: {fileID: 3552788898689772616}
+  m_PrefabAsset: {fileID: 0}

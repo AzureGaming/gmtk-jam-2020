@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
   public SpriteRenderer spriteRenderer;
   public GameObject blood;
   public PortalSpawn portalSpawn;
-  public BoxCollider2D boxCollider;
+  public BoxCollider2D triggerCollider;
 
   protected int bloodAmount = 5;
   protected int gloryKillBloodAmount = 10;
@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     deathSound.Play();
     healthBar.IncrementHealth(bloodAmount);
     spriteRenderer.enabled = false;
-    boxCollider.enabled = false;
+    triggerCollider.enabled = false;
     Instantiate(blood, transform.position, Quaternion.identity);
     Destroy(this.gameObject, deathSound.clip.length + 0.5f);
   }
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
   public IEnumerator GloryDeath()
   {
     spriteRenderer.enabled = false;
-    boxCollider.enabled = false;
+    triggerCollider.enabled = false;
     yield return new WaitUntil(() => FindObjectOfType<GloryKill>().IsAnimationDone());
     gameManager.IncrementScore(scoreValue);
     healthBar.IncrementHealth(gloryKillBloodAmount);

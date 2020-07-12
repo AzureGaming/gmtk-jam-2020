@@ -5,6 +5,8 @@ using UnityEngine;
 public class BunnyController : EnemyController
 {
   public Animator animator;
+  public Rigidbody2D rb;
+
   public override void Start()
   {
     base.Start();
@@ -17,7 +19,7 @@ public class BunnyController : EnemyController
     deathSound.Play();
     healthBar.SubtractHealth(bloodAmount);
     spriteRenderer.enabled = false;
-    GetComponent<BoxCollider2D>().enabled = false;
+    triggerCollider.enabled = false;
     Instantiate(blood, transform.position, Quaternion.identity);
     Destroy(this.gameObject, deathSound.clip.length + 0.5f);
   }
@@ -38,7 +40,7 @@ public class BunnyController : EnemyController
           // move left
           Vector3 pos = transform.position;
           pos.x = Mathf.Lerp(origPos.x, origPos.x + offset, Mathf.Min(1, t / 0.5f));
-          transform.position = pos;
+          rb.MovePosition(new Vector2(pos.x, pos.y));
           yield return null;
         }
         animator.SetFloat("Blend", 0.7f);
@@ -51,7 +53,7 @@ public class BunnyController : EnemyController
           // move left
           Vector3 pos = transform.position;
           pos.x = Mathf.Lerp(origPos.x, origPos.x - offset, Mathf.Min(1, t / 0.5f));
-          transform.position = pos;
+          rb.MovePosition(new Vector2(pos.x, pos.y));
           yield return null;
         }
         animator.SetFloat("Blend", 0.4f);

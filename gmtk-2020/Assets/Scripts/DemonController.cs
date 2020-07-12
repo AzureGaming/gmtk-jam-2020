@@ -5,6 +5,7 @@ using UnityEngine;
 public class DemonController : EnemyController
 {
   public Animator animator;
+  public Rigidbody2D rb;
 
   public override void Start()
   {
@@ -29,7 +30,7 @@ public class DemonController : EnemyController
         {
           Vector3 pos = transform.position;
           pos.x = Mathf.Lerp(origPos.x, origPos.x + offset, Mathf.Min(1, t / duration));
-          transform.position = pos;
+          rb.MovePosition(new Vector2(pos.x, pos.y));
           yield return null;
         }
       }
@@ -41,7 +42,7 @@ public class DemonController : EnemyController
         {
           Vector3 pos = transform.position;
           pos.x = Mathf.Lerp(origPos.x, origPos.x - offset, Mathf.Min(1, t / duration));
-          transform.position = pos;
+          rb.MovePosition(new Vector2(pos.x, pos.y));
           yield return null;
         }
       }
