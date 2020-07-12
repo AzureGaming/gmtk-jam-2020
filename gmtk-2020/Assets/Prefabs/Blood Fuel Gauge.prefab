@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 70152579011980272}
-  drainDamage: 1
+  drainDamage: 3
   drainRate: 1
 --- !u!1 &5453663068485375348
 GameObject:
