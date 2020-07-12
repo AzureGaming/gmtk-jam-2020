@@ -11,7 +11,8 @@ public class EnemyController : MonoBehaviour
   public PortalSpawn portalSpawn;
   public BoxCollider2D boxCollider;
 
-  public int bloodAmount = 10;
+  protected int bloodAmount = 5;
+  protected int gloryKillBloodAmount = 10;
   public int scoreValue = 100;
 
   protected GameManager gameManager;
@@ -45,7 +46,7 @@ public class EnemyController : MonoBehaviour
     boxCollider.enabled = false;
     yield return new WaitUntil(() => FindObjectOfType<GloryKill>().IsAnimationDone());
     gameManager.IncrementScore(scoreValue);
-    healthBar.IncrementHealth(bloodAmount);
+    healthBar.IncrementHealth(gloryKillBloodAmount);
     Instantiate(blood, transform.position, Quaternion.identity);
     Destroy(gameObject, 1f);
   }
