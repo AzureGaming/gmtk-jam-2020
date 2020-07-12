@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
 {
   public GameManager gameManager;
   public Slider slider;
-  int health;
+  float health;
 
   private void Update()
   {
@@ -17,26 +17,26 @@ public class HealthBar : MonoBehaviour
     }
   }
 
-  public void SubtractHealth(int value)
+  public void SubtractHealth(float value)
   {
     health -= value;
     SetHealth(health);
   }
 
-  public void IncrementHealth(int value)
+  public void IncrementHealth(float value)
   {
     health += value;
     // Manage overflow?
     SetHealth(health);
   }
 
-  public void SetMaxHealth(int value)
+  public void SetMaxHealth(float value)
   {
     slider.maxValue = value;
     SetHealth(value);
   }
 
-  void SetHealth(int value)
+  void SetHealth(float value)
   {
     slider.value = value;
     health = value;
