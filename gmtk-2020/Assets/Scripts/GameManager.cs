@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
 
   public void ResetMultiplier()
   {
-    enemiesKilled = 0;
     scoreMultiplier = 1;
     scoreManager.SetScore(score, scoreMultiplier);
   }
