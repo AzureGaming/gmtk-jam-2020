@@ -9,9 +9,9 @@ public class PortalSpawn : MonoBehaviour
 
   public IEnumerator PortalDone()
   {
-    yield return new WaitUntil(() => donePortalAnimation);
+    yield return new WaitUntil(() => donePortalAnimation == true);
     spriteRenderer.enabled = false;
-    Destroy(gameObject, 2f);
+    Destroy(gameObject, 1.5f);
   }
 
   public void ShowEnemy()

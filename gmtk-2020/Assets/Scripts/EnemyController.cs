@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
   public AudioSource deathSound;
   public SpriteRenderer spriteRenderer;
   public GameObject blood;
@@ -24,7 +23,7 @@ public class EnemyController : MonoBehaviour
     gameManager = FindObjectOfType<GameManager>();
   }
 
-  private void Start()
+  public virtual void Start()
   {
     StartCoroutine(Spawn());
   }
@@ -51,7 +50,7 @@ public class EnemyController : MonoBehaviour
     Destroy(gameObject, 1f);
   }
 
-  public IEnumerator Spawn()
+  IEnumerator Spawn()
   {
     spriteRenderer.enabled = false;
     yield return StartCoroutine(portalSpawn.PortalDone());

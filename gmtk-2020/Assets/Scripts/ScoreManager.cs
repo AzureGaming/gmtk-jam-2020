@@ -21,19 +21,8 @@ public class ScoreManager : MonoBehaviour
     scoreUI.SetActive(false);
   }
 
-  // public void IncrementScore(int scoreValue, int multiplierValue)
-  // {
-  //   SetScore(score + scoreValue, multiplierValue);
-  // }
-
-  // public void DecrementScore(int scoreValue, int multiplierValue)
-  // {
-  //   SetScore(score - scoreValue, multiplierValue);
-  // }
-
   public void SetScore(int scoreValue, int multiplierValue)
   {
-    Debug.Log("Set score" + scoreValue);
     SetScoreText(scoreValue, multiplierValue);
   }
 
