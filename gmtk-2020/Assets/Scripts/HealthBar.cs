@@ -47,7 +47,6 @@ public class HealthBar : MonoBehaviour
     else if (health > 100)
     {
       health = 100;
-      Debug.LogWarning("Overflow...");
     }
   }
 }

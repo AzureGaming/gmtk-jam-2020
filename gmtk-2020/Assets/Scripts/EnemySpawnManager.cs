@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class EnemySpawnManager : MonoBehaviour
 {
   public GameObject enemy;
+  public GameObject bunny;
   public Transform player;
   public Tilemap tilemap;
 
@@ -52,13 +53,15 @@ public class EnemySpawnManager : MonoBehaviour
     {
       player = FindObjectOfType<ChainsawController>().transform;
     }
+    float randomEnemy = Random.Range(0f, 100f);
+    GameObject enemyType = randomEnemy >= 25 ? enemy : bunny;
 
     float randomPosOnCamX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x, Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x);
     float randomPosOnCamY = Random.Range(Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).y, Camera.main.ViewportToWorldPoint(new Vector3(1, 1)).y);
     Vector3 enemyPosition = new Vector3(randomPosOnCamX, randomPosOnCamY, 0f);
     if ((enemyPosition - player.transform.position).magnitude >= 3 && IsWithinBoundaries(enemyPosition))
     {
-      Instantiate(enemy, enemyPosition, Quaternion.identity);
+      Instantiate(enemyType, enemyPosition, Quaternion.identity);
     }
   }
 

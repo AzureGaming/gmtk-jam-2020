@@ -1391,6 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1959727721891035414, guid: 33d6c09f16d4a4bce919857d1ff93b7c, type: 3}
+  bunny: {fileID: 537375161510631938, guid: 9c6996f663d214295b212712d68217b5, type: 3}
   player: {fileID: 728743927}
   tilemap: {fileID: 1296981116}
   spawnDelay: 1
