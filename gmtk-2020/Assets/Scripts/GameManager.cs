@@ -73,7 +73,8 @@ public class GameManager : MonoBehaviour
   public void ResetMultiplier()
   {
     enemiesKilled = 0;
-    scoreManager.ResetMultiplier();
+    scoreMultiplier = 1;
+    scoreManager.SetScore(score, scoreMultiplier);
   }
 
   public void SetGloryKilling(bool value)

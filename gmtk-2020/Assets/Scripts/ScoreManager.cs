@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-  public TMPro.TextMeshProUGUI scoreText;
   public GameObject scoreUI;
+  public GameObject[] scorePlaceholders;
+  public GameObject multiplierPlaceholder;
   public Sprite[] sprites;
-
-  int score = 0;
-  int multiplier = 1;
 
   public void ShowScore()
   {
@@ -22,35 +21,35 @@ public class ScoreManager : MonoBehaviour
     scoreUI.SetActive(false);
   }
 
-  public void ResetMultiplier()
-  {
-    SetScoreText(score, 1);
-  }
+  // public void IncrementScore(int scoreValue, int multiplierValue)
+  // {
+  //   SetScore(score + scoreValue, multiplierValue);
+  // }
 
-  public void IncrementScore(int scoreValue, int multiplierValue)
-  {
-    SetScore(score + scoreValue, multiplierValue);
-  }
-
-  public void DecrementScore(int scoreValue, int multiplierValue)
-  {
-    SetScore(score - scoreValue, multiplierValue);
-  }
+  // public void DecrementScore(int scoreValue, int multiplierValue)
+  // {
+  //   SetScore(score - scoreValue, multiplierValue);
+  // }
 
   public void SetScore(int scoreValue, int multiplierValue)
   {
-    score = scoreValue;
-    multiplier = multiplierValue;
-    SetScoreText(score, multiplierValue);
-  }
-
-  public void SetScore()
-  {
-    SetScoreText(score, multiplier);
+    Debug.Log("Set score" + scoreValue);
+    SetScoreText(scoreValue, multiplierValue);
   }
 
   void SetScoreText(int value, int multiplier)
   {
-    scoreText.text = "Score: " + value + " x " + multiplier;
+    foreach (GameObject placeholder in scorePlaceholders)
+    {
+      int digit = value % 10;
+      Sprite sprite = sprites[digit];
+      placeholder.GetComponent<Image>().sprite = sprite;
+      value /= 10;
+    }
+    if (multiplier > 9)
+    {
+      return;
+    }
+    multiplierPlaceholder.GetComponent<Image>().sprite = sprites[multiplier];
   }
 }
