@@ -12,28 +12,21 @@ public class GameManager : MonoBehaviour
   public GameObject loseScreen;
   public GameObject winScreen;
   public GameObject startScreen;
+  public ChainsawController playerController;
 
   public int maxHealth = 100;
   public int timeLimit = 600;
 
   bool gloryKilling = false;
 
-  ChainsawController playerController;
   Coroutine timer;
 
   int enemiesKilled = 0;
   int scoreMultiplier = 1;
+  int score = 0;
 
   void Start()
   {
-    // startScreen.SetActive(true);
-    // scoreManager.HideScore();
-    // healthBar.gameObject.SetActive(false);
-    // enemySpawnManager.StopSpawning();
-    // if (FindObjectOfType<ChainsawController>() != null)
-    // {
-    //   Destroy(FindObjectOfType<ChainsawController>().gameObject);
-    // }
     StartGame();
   }
 
@@ -51,15 +44,6 @@ public class GameManager : MonoBehaviour
     scoreManager.ShowScore();
     scoreManager.SetScore(0, 1);
     enemySpawnManager.CleanUpSpawns();
-    if (FindObjectOfType<ChainsawController>())
-    {
-      playerController = FindObjectOfType<ChainsawController>().GetComponent<ChainsawController>();
-    }
-    else
-    {
-      GameObject playerInstantiation = Instantiate(player);
-      playerController = playerInstantiation.GetComponent<ChainsawController>();
-    }
     healthBar.gameObject.SetActive(true);
     healthBar.SetMaxHealth(maxHealth);
     healthBarDrain.Initialize();
@@ -71,14 +55,19 @@ public class GameManager : MonoBehaviour
     // timer = StartCoroutine(StartTimer(timeLimit));
   }
 
-  public void IncrementScore(int score)
+  public void IncrementScore(int value)
   {
+    score += value;
     enemiesKilled += 1;
     if (enemiesKilled % 5 == 0)
     {
       scoreMultiplier += 1;
     }
-    scoreManager.IncrementScore(score * scoreMultiplier, scoreMultiplier);
+    if (score == 1000)
+    {
+      FindObjectOfType<ChainsawController>().GoBerserk();
+    }
+    scoreManager.SetScore(score, scoreMultiplier);
   }
 
   public void ResetMultiplier()

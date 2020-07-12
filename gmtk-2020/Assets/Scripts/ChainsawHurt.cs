@@ -7,8 +7,6 @@ public class ChainsawHurt : MonoBehaviour
   public SpriteRenderer spriteRenderer;
   Color color;
 
-
-
   private void OnCollisionEnter2D(Collision2D other)
   {
     if (other.gameObject.tag == "Wall")

@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
   public TMPro.TextMeshProUGUI scoreText;
   public GameObject scoreUI;
+  public Sprite[] sprites;
 
   int score = 0;
   int multiplier = 1;
@@ -29,6 +30,11 @@ public class ScoreManager : MonoBehaviour
   public void IncrementScore(int scoreValue, int multiplierValue)
   {
     SetScore(score + scoreValue, multiplierValue);
+  }
+
+  public void DecrementScore(int scoreValue, int multiplierValue)
+  {
+    SetScore(score - scoreValue, multiplierValue);
   }
 
   public void SetScore(int scoreValue, int multiplierValue)
