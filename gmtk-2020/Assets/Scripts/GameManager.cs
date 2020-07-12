@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
   public void IncrementScore(int value)
   {
     enemiesKilled += 1;
-    if (enemiesKilled % 5 == 0)
+    if (enemiesKilled % 5 == 0 && scoreMultiplier <= 9)
     {
       scoreMultiplier += 1;
     }
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
       FindObjectOfType<ChainsawController>().GoBerserk();
     }
     score += value * scoreMultiplier;
-    scoreManager.SetScore(score * scoreMultiplier, scoreMultiplier);
+    scoreManager.SetScore(score, scoreMultiplier);
   }
 
   public void ResetMultiplier()
