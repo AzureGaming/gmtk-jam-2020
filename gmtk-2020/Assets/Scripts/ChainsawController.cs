@@ -115,6 +115,7 @@ public class ChainsawController : MonoBehaviour
   public void WakeUp()
   {
     rb.WakeUp();
+    StartCoroutine(StopBerserk());
     isDead = false;
     spriteRenderer.color = color;
     spriteRenderer.enabled = true;
