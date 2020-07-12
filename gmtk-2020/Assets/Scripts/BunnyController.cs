@@ -22,7 +22,7 @@ public class BunnyController : EnemyController
     Destroy(this.gameObject, deathSound.clip.length + 0.5f);
   }
 
-  public IEnumerator MovementRoutine()
+  IEnumerator MovementRoutine()
   {
     while (true)
     {
@@ -37,7 +37,7 @@ public class BunnyController : EnemyController
         {
           // move left
           Vector3 pos = transform.position;
-          pos.x = Mathf.Lerp(origPos.x, pos.x + offset, Mathf.Min(1, t / 0.5f));
+          pos.x = Mathf.Lerp(origPos.x, origPos.x + offset, Mathf.Min(1, t / 0.5f));
           transform.position = pos;
           yield return null;
         }
@@ -50,7 +50,7 @@ public class BunnyController : EnemyController
         {
           // move left
           Vector3 pos = transform.position;
-          pos.x = Mathf.Lerp(origPos.x, pos.x - offset, Mathf.Min(1, t / 0.5f));
+          pos.x = Mathf.Lerp(origPos.x, origPos.x - offset, Mathf.Min(1, t / 0.5f));
           transform.position = pos;
           yield return null;
         }

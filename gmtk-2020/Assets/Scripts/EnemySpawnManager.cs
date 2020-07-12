@@ -56,7 +56,7 @@ public class EnemySpawnManager : MonoBehaviour
     }
     float randomEnemy = Random.Range(0f, 100f);
     // GameObject enemyType = randomEnemy >= 25 ? enemy : bunny;
-    GameObject enemyType = bunny;
+    GameObject enemyType = enemy;
 
     float randomPosOnCamX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x, Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x);
     float randomPosOnCamY = Random.Range(Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).y, Camera.main.ViewportToWorldPoint(new Vector3(1, 1)).y);
