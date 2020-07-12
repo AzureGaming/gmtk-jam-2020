@@ -251,7 +251,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   blood: {fileID: 0}
   portalSpawn: {fileID: 1268665635703015450}
-  boxCollider: {fileID: 3787613569645342830}
+  triggerCollider: {fileID: 0}
   scoreValue: 100
 --- !u!1001 &744594663011011251
 PrefabInstance:
@@ -315,6 +315,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2003644755920978601, guid: f94b2140d27a44fa283d280d7c7a027e,
+        type: 3}
+      propertyPath: triggerCollider
+      value: 
+      objectReference: {fileID: 6802036046598353720}
     - target: {fileID: 5240291082526146874, guid: f94b2140d27a44fa283d280d7c7a027e,
         type: 3}
       propertyPath: m_Name
