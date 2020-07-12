@@ -11,6 +11,8 @@ public class ChainsawController : MonoBehaviour
   public SpriteRenderer spriteRenderer;
   public GameManager gameManager;
   public GameObject bladeSparks;
+  public GameObject gloryKill;
+  public BoxCollider2D boxCollider;
 
   Coroutine idleAudio;
   Coroutine invincibleCooldown;
@@ -21,6 +23,8 @@ public class ChainsawController : MonoBehaviour
   bool charging = false;
   bool isDead = false;
   bool invincible = false;
+  bool berserk = false;
+  bool gloryKilling = false;
 
   private void Awake()
   {
@@ -49,15 +53,12 @@ public class ChainsawController : MonoBehaviour
     if (other.gameObject.tag == "Wall")
     {
       FindObjectOfType<HealthBar>().SubtractHealth(0.5f);
-      // ContactPoint2D contact = other.GetContact((int)Mathf.Floor(other.contactCount / 2));
-      // GameObject sparks = Instantiate(bladeSparks, contact.point, Quaternion.identity);
-      // Destroy(sparks, 0.2f);
     }
   }
 
   private void FixedUpdate()
   {
-    if (rb != null && !isDead)
+    if (!gloryKilling)
     {
       if (Input.GetMouseButton(0))
       {
@@ -78,7 +79,18 @@ public class ChainsawController : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.tag == "Enemy")
+    if (other.tag == "Demon" && !gloryKilling)
+    {
+      StartCoroutine(HandleGloryKill(other));
+      // if (berserk)
+      // {
+      // }
+      // else
+      // {
+      //   StartCoroutine(HandleGloryKill(other));
+      // }
+    }
+    else if (other.tag == "Enemy")
     {
       StartCoroutine(HandleEnemyCollision(other));
     }
@@ -159,6 +171,18 @@ public class ChainsawController : MonoBehaviour
     other.GetComponent<Enemy>().Die();
     yield return new WaitForSeconds(0.5f);
     idleAudio = StartCoroutine(LoopIdleAudio());
+  }
+
+  IEnumerator HandleGloryKill(Collider2D other)
+  {
+    gloryKilling = true;
+    StopIdleAudio();
+    spriteRenderer.enabled = false;
+    rb.velocity = new Vector2(0, 0);
+    Instantiate(gloryKill, transform);
+    yield return StartCoroutine(other.GetComponent<Enemy>().GloryDeath());
+    spriteRenderer.enabled = true;
+    gloryKilling = false;
   }
 
   IEnumerator FlashRed()

@@ -9,6 +9,7 @@ public class EnemySpawnManager : MonoBehaviour
   public GameObject bunny;
   public Transform player;
   public Tilemap tilemap;
+  public GameManager gameManager;
 
   public int spawnDelay = 1;
 
@@ -40,7 +41,7 @@ public class EnemySpawnManager : MonoBehaviour
 
   IEnumerator SpawnEnemies()
   {
-    while (true)
+    while (true && !gameManager.IsGloryKilling())
     {
       SpawnEnemy();
       yield return new WaitForSeconds(spawnDelay);

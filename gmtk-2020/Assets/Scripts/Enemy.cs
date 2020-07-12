@@ -9,4 +9,9 @@ public class Enemy : MonoBehaviour
   {
     controller.Die();
   }
+
+  public IEnumerator GloryDeath()
+  {
+    yield return StartCoroutine(controller.GloryDeath());
+  }
 }

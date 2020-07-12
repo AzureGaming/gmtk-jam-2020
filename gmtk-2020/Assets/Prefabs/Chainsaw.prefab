@@ -109,6 +109,9 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   bladeSparks: {fileID: 7647614945283910389, guid: b19196a9e933f48c198da139771c3de6,
     type: 3}
+  gloryKill: {fileID: 4115252036364895212, guid: 5087d4139bc3b4875ae7230120051c6a,
+    type: 3}
+  boxCollider: {fileID: 8088147737200570841}
 --- !u!50 &4938998447842661866
 Rigidbody2D:
   serializedVersion: 4

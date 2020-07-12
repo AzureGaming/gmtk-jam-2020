@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
   public int maxHealth = 100;
   public int timeLimit = 600;
 
+  bool gloryKilling = false;
+
   ChainsawController playerController;
   Coroutine timer;
 
@@ -83,6 +85,16 @@ public class GameManager : MonoBehaviour
   {
     enemiesKilled = 0;
     scoreManager.ResetMultiplier();
+  }
+
+  public void SetGloryKilling(bool value)
+  {
+    gloryKilling = value;
+  }
+
+  public bool IsGloryKilling()
+  {
+    return gloryKilling;
   }
 
   IEnumerator StartTimer(int timeLimit)
