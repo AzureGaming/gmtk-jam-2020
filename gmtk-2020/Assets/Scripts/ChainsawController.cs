@@ -33,8 +33,9 @@ public class ChainsawController : MonoBehaviour
   {
     if (other.gameObject.tag == "Wall")
     {
-      StartCoroutine(FlashRed());
-      FindObjectOfType<HealthBar>().SubtractHealth(10);
+      Debug.Log(other.GetContact(0));
+      // StartCoroutine(FlashRed());
+      // FindObjectOfType<HealthBar>().SubtractHealth(10);
     }
   }
 
