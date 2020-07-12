@@ -10,14 +10,17 @@ public class ChainsawController : MonoBehaviour
   public ChainsawCharge charge;
   public SpriteRenderer spriteRenderer;
   public GameManager gameManager;
+  public GameObject bladeSparks;
 
   Coroutine idleAudio;
+  Coroutine invincibleCooldown;
   Vector3 lastDirection;
   Color color;
 
   float speed = 10f;
   bool charging = false;
   bool isDead = false;
+  bool invincible = false;
 
   private void Awake()
   {
@@ -33,9 +36,22 @@ public class ChainsawController : MonoBehaviour
   {
     if (other.gameObject.tag == "Wall")
     {
-      Debug.Log(other.GetContact(0));
-      // StartCoroutine(FlashRed());
-      // FindObjectOfType<HealthBar>().SubtractHealth(10);
+      if (!invincible)
+      {
+        FindObjectOfType<HealthBar>().SubtractHealth(10);
+        StartCoroutine(SetInvincible());
+      }
+    }
+  }
+
+  private void OnCollisionStay2D(Collision2D other)
+  {
+    if (other.gameObject.tag == "Wall")
+    {
+      FindObjectOfType<HealthBar>().SubtractHealth(0.5f);
+      // ContactPoint2D contact = other.GetContact((int)Mathf.Floor(other.contactCount / 2));
+      // GameObject sparks = Instantiate(bladeSparks, contact.point, Quaternion.identity);
+      // Destroy(sparks, 0.2f);
     }
   }
 
@@ -82,6 +98,13 @@ public class ChainsawController : MonoBehaviour
     spriteRenderer.enabled = false;
     rb.velocity.Set(0, 0);
     Destroy(gameObject, 2f);
+  }
+
+  IEnumerator SetInvincible()
+  {
+    invincible = true;
+    yield return new WaitForSeconds(1f);
+    invincible = false;
   }
 
 
