@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-  GameManager gameManager;
 
   public AudioSource deathSound;
   public SpriteRenderer spriteRenderer;
   public Rigidbody2D rb;
   public GameObject blood;
+  public PortalSpawn portalSpawn;
 
   public int bloodAmount = 10;
   public int scoreValue = 100;
 
-  HealthBar healthBar;
+  protected GameManager gameManager;
+  protected HealthBar healthBar;
 
   private void Awake()
   {
@@ -22,7 +23,12 @@ public class EnemyController : MonoBehaviour
     gameManager = FindObjectOfType<GameManager>();
   }
 
-  public void Die()
+  private void Start()
+  {
+    StartCoroutine(Spawn());
+  }
+
+  public virtual void Die()
   {
     gameManager.IncrementScore(scoreValue);
     deathSound.Play();
@@ -31,5 +37,12 @@ public class EnemyController : MonoBehaviour
     rb.isKinematic = true;
     Instantiate(blood, transform.position, Quaternion.identity);
     Destroy(this.gameObject, deathSound.clip.length + 0.5f);
+  }
+
+  public IEnumerator Spawn()
+  {
+    spriteRenderer.enabled = false;
+    yield return StartCoroutine(portalSpawn.PortalDone());
+    spriteRenderer.enabled = true;
   }
 }

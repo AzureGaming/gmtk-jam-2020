@@ -56,6 +56,10 @@ public class ChainsawController : MonoBehaviour
 
   void ConvertMousePosToDirection()
   {
+    if (idleAudio == null)
+    {
+      idleAudio = StartCoroutine(LoopIdleAudio());
+    }
     Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     pos.z = transform.position.z;

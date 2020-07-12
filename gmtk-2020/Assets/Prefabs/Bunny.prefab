@@ -115,6 +115,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3329911625443656318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537375161510631938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608e490760765405aa2c23843e3c2663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound: {fileID: 1021409316789256376}
+  spriteRenderer: {fileID: 5466050715309826872}
+  rb: {fileID: 676738926269146200}
+  blood: {fileID: 2799323830549362392, guid: 070ec3b691ea640cc9bfa6f7d4e41f98, type: 3}
+  portalSpawn: {fileID: 4364625914138543942}
+  bloodAmount: 10
+  scoreValue: 100
 --- !u!1001 &3245248737783811932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,6 +147,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1786032118633300489, guid: 2ca3f320c0861403390c785f6970c0c0,
         type: 3}
+    - target: {fileID: 1312242847306714300, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 3329911625443656318}
     - target: {fileID: 2972888499943955968, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -249,7 +273,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2799323830549362392, guid: 070ec3b691ea640cc9bfa6f7d4e41f98,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8006647485933787909, guid: c96b1e5a9152d4aad8f1a53fc6a73b13, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c96b1e5a9152d4aad8f1a53fc6a73b13, type: 3}
 --- !u!1 &537375161510631938 stripped
 GameObject:
@@ -269,3 +294,15 @@ Rigidbody2D:
     type: 3}
   m_PrefabInstance: {fileID: 3245248737783811932}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4364625914138543942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1268665635703015450, guid: c96b1e5a9152d4aad8f1a53fc6a73b13,
+    type: 3}
+  m_PrefabInstance: {fileID: 3245248737783811932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ab525e211ff4235bfe12ae44a60707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -80,6 +80,12 @@ public class GameManager : MonoBehaviour
     scoreManager.IncrementScore(score * scoreMultiplier, scoreMultiplier);
   }
 
+  public void ResetMultiplier()
+  {
+    enemiesKilled = 0;
+    scoreManager.ResetMultiplier();
+  }
+
   IEnumerator StartTimer(int timeLimit)
   {
     float startTime = Time.time;

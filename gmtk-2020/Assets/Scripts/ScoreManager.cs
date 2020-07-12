@@ -21,6 +21,11 @@ public class ScoreManager : MonoBehaviour
     scoreUI.SetActive(false);
   }
 
+  public void ResetMultiplier()
+  {
+    SetScoreText(score, 1);
+  }
+
   public void IncrementScore(int scoreValue, int multiplierValue)
   {
     SetScore(score + scoreValue, multiplierValue);
