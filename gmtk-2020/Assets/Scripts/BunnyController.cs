@@ -6,10 +6,9 @@ public class BunnyController : EnemyController
 {
   public override void Die()
   {
-    Debug.Log("die");
     gameManager.ResetMultiplier();
     deathSound.Play();
-    healthBar.IncrementHealth(bloodAmount);
+    healthBar.SubtractHealth(bloodAmount);
     spriteRenderer.enabled = false;
     GetComponent<BoxCollider2D>().enabled = false;
     Instantiate(blood, transform.position, Quaternion.identity);

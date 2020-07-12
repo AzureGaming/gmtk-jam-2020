@@ -9,10 +9,11 @@ public class ChainsawController : MonoBehaviour
   public AudioSource chainsawIdle;
   public ChainsawCharge charge;
   public SpriteRenderer spriteRenderer;
-  public GameManager gameManager;
   public GameObject bladeSparks;
   public GameObject gloryKill;
   public BoxCollider2D boxCollider;
+  public GameObject berserkOverlay;
+  public GameManager gameManager;
 
   Coroutine idleAudio;
   Coroutine invincibleCooldown;
@@ -29,6 +30,7 @@ public class ChainsawController : MonoBehaviour
   private void Awake()
   {
     color = spriteRenderer.color;
+    gameManager = FindObjectOfType<GameManager>();
   }
 
   private void Start()
@@ -42,7 +44,7 @@ public class ChainsawController : MonoBehaviour
     {
       if (!invincible)
       {
-        FindObjectOfType<HealthBar>().SubtractHealth(10);
+        FindObjectOfType<HealthBar>().SubtractHealth(5);
         StartCoroutine(SetInvincible());
       }
     }
@@ -79,16 +81,21 @@ public class ChainsawController : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.tag == "Demon" && !gloryKilling)
+    if (gloryKilling)
     {
-      StartCoroutine(HandleGloryKill(other));
-      // if (berserk)
-      // {
-      // }
-      // else
-      // {
-      //   StartCoroutine(HandleGloryKill(other));
-      // }
+      return;
+    }
+
+    if (other.tag == "Demon")
+    {
+      if (berserk)
+      {
+        StartCoroutine(HandleGloryKill(other));
+      }
+      else
+      {
+        StartCoroutine(HandleEnemyCollision(other));
+      }
     }
     else if (other.tag == "Enemy")
     {
@@ -109,7 +116,24 @@ public class ChainsawController : MonoBehaviour
     yield return StartCoroutine(FadeOut());
     spriteRenderer.enabled = false;
     rb.velocity.Set(0, 0);
-    Destroy(gameObject, 2f);
+  }
+
+  public void GoBerserk()
+  {
+    berserk = true;
+    berserkOverlay.SetActive(true);
+    StartCoroutine(StopBerserk(10f));
+  }
+
+  IEnumerator StopBerserk(float delay = 0f)
+  {
+    yield return new WaitForSeconds(delay);
+    if (delay > 3f)
+    {
+      yield return StartCoroutine(FlashRed());
+    }
+    berserk = false;
+    berserkOverlay.SetActive(false);
   }
 
   IEnumerator SetInvincible()
@@ -118,7 +142,6 @@ public class ChainsawController : MonoBehaviour
     yield return new WaitForSeconds(1f);
     invincible = false;
   }
-
 
   void ConvertMousePosToDirection()
   {
