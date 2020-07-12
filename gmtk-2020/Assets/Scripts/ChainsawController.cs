@@ -58,7 +58,7 @@ public class ChainsawController : MonoBehaviour
 
   private void FixedUpdate()
   {
-    if (!gloryKilling)
+    if (!gloryKilling && !isDead)
     {
       if (Input.GetMouseButton(0))
       {
